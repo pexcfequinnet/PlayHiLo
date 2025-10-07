@@ -2,23 +2,27 @@
 #include <stdlib.h>
 #include <time.h>
 #include <limits>
-static void hiloGame(int n)
+void hiloGame(int minVal, int maxVal, int maxAttempt)
 {
-    int maxAttempt{ 20 };
+    // Random number generator
     srand(time(NULL));
-    int answer{ rand() % 1001 };
-    std::cout << "I will pick a number from 0 to 1000, you will have " << maxAttempt << " attempts to guess that number." << '\n';
+    int answer{ minVal + rand() % maxVal + 1};
+    
+    // Core game
+    std::cout << "I will pick a number from " << minVal << " to " << maxVal 
+        << ", you will have " << maxAttempt << " attempts to guess that number." << '\n';
+
     std::cout << "Guess the number: ";
     
-
+    // Game mechanic
     for (int i{ 1 }; i <= maxAttempt; ++i)
     {
         int guess{};
         std::cin >> guess;
 
-        while (std::cin >> guess)
+        while (!(std::cin >> guess))
         {
-            std::cout << "Invalid input.\n";
+            std::cout << "Invalid input.\nGuess the number: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
