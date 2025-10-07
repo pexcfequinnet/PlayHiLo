@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <limits>
 static void hiloGame(int n)
 {
     int maxAttempt{ 20 };
@@ -15,10 +16,17 @@ static void hiloGame(int n)
         int guess{};
         std::cin >> guess;
 
+        while (std::cin >> guess)
+        {
+            std::cout << "Invalid input.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        }
             
         if (guess == answer)
         {
-            std::cout << "Correct answer! You won.";
+            std::cout << "Correct answer! You won." << '\n';
             break;
         }
 
@@ -50,16 +58,18 @@ static void hiloGame(int n)
 int main()
 {
 
-    
+    std::cout << "Welcome to the Hi-Lo game, enter 1 to continue, enter 0 to exit: ";
     int n{};
 
-    do {
-        std::cout << "Welcome to the Hi-Lo game, enter 1 to continue: ";
-        std::cin >> n;
-        if (n != 1)
-            std::cout << "Invalid input.\n";
-    } while (n != 1);
-
-    hiloGame(n);
-    return 0;
+    while (!(std::cin >> n) || n < 0 || n > 2)
+    {
+        std::cout << "Invalid input.\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    
+    if(n == 1)
+        hiloGame(n);
+    else
+        return 0;
 }
