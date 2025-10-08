@@ -23,13 +23,10 @@ void mainMenu(int choice, int minVal, int maxVal, int maxAttempts)
         gameConfigMainMenu();
     else
         exit(0);
-
-    if (hiloGame)
-        hiloGame(minVal, maxVal, maxAttempts);
 }
 int main()
 {
-	int choice{}, minVal{1}, maxVal{100}, maxAttempts{10};
-    mainMenu(choice, minVal, maxVal, maxAttempts);
+	int minVal{1}, maxVal{100}, maxAttempts{10};
+    mainMenu(0, minVal, maxVal, maxAttempts);
     return 0;
 }

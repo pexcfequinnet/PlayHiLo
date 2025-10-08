@@ -125,10 +125,12 @@ void maxGuessesConfigMenu()
 	using namespace std::chrono_literals;
 	using std::chrono::system_clock;
 
+	system("cls");
 	std::cout << "Change max amount of guesses (currently " << maxAttempts << "): ";
 	while (!(std::cin >> maxAttempts))
 	{
-		std::cout << "Invalid input.";
+		std::cout << "Invalid input." << '\n';
+		std::cout << "Change max amount of guesses (currently " << maxAttempts << "): ";
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
