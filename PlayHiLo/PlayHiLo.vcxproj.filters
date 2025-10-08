@@ -26,7 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mainheader.h">
+    <ClInclude Include="mainmenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="configmenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
