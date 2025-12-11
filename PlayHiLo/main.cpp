@@ -39,7 +39,7 @@ void mainMenu(int choice, int minVal, int maxVal, int maxAttempts)
 }
 int main()
 {
-	int minVal{1}, maxVal{100}, maxAttempts{10};
+	int minVal{1}, maxVal{100}, maxAttempts{5};
     mainMenu(0, minVal, maxVal, maxAttempts);
     return 0;
 }
